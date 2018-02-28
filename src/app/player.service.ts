@@ -7,11 +7,14 @@ export class PlayerService {
   players: FirebaseListObservable<any[]>
 
   constructor(private database: AngularFireDatabase){
-    this.players = database.list('players');
+    this.players = database.list('obj');
   }
 
   getPlayer() {
     return this.players;
   }
+  // updateBox() {
+  //
+  // }
 
 }

@@ -8,12 +8,33 @@
     </div>
   </div>
 </div>
-<div *ngFor="let player of players | async" class="panel panel-default">
+<div *ngFor="let player of players | async" class="panel panel-default grid-player">
   <div class="panel-body grid">
-    <div *ngFor="let row of player.board" class="player-row">
-      <div *ngFor="let box of row" class="player-box">
+    <div *ngFor="let rows of player" class="grid-row">
+      <div *ngFor="let box of rows" (click)="updateBox(player, rows, box)">
         {{box}}
       </div>
     </div>
   </div>
+</div>
+
+<div *ngFor="let player of players | async" class="panel panel-default grid-player">
+  one above
+  <div *ngFor="let rows of player.board[0] | async">
+    test
+    {{rows}}
+    <div *ngFor="let row of rows | async">
+      <!-- {{row}} -->
+      <!-- <div *ngFor="let col of row">
+        {{col}}
+        hi
+      </div> -->
+
+    </div>
+
+  </div>
+  <p>Test</p>
+  {{player.board[0].row}}
+
+<button (click)="updateBox(player, rows, box)">Test</button>
 </div>
