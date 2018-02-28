@@ -1,0 +1,19 @@
+<p>example grid</p>
+<div *ngFor="let grid of grids | async" class="panel panel-default">
+  <div class="panel-body grid">
+    <div *ngFor="let row of grid.board" class="grid-row">
+      <div *ngFor="let box of row" class="grid-box">
+        {{box}}
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngFor="let player of players | async" class="panel panel-default">
+  <div class="panel-body grid">
+    <div *ngFor="let row of player.board" class="player-row">
+      <div *ngFor="let box of row" class="player-box">
+        {{box}}
+      </div>
+    </div>
+  </div>
+</div>
