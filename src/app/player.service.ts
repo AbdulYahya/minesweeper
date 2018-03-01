@@ -12,6 +12,7 @@ export class PlayerService {
 
   getPlayer() {
     return this.players;
+
   }
   getBoxById(boxId: string) {
   return this.database.object('board/'+ boxId)
@@ -20,5 +21,12 @@ export class PlayerService {
     var boxEntryInFirebase = this.getBoxById(player.$key);
     boxEntryInFirebase.update({action: player.action});
   }
+
+  resetBox(players) {
+    var boxEntryInFirebase = this.getBoxById(players.$key);
+    boxEntryInFirebase.update({action:players.action});
+  }
+
+  
 
 }
