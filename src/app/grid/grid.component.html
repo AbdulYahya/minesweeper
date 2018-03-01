@@ -1,28 +1,8 @@
 <p>example grid</p>
-<div *ngFor="let grid of grids | async" class="panel panel-default">
+<div class="panel panel-default grid-player">
   <div class="panel-body grid">
-    <div *ngFor="let row of grid.board" class="grid-row">
-      <div *ngFor="let box of row" class="grid-box">
-        {{box}}
-      </div>
+    <div *ngFor="let player of players | async" (click)="updateBox(player)" class="grid-box">
+      {{player.action}}
     </div>
   </div>
-</div>
-<!-- <div *ngFor="let player of players | async" class="panel panel-default grid-player">
-  <div class="panel-body grid">
-    <div *ngFor="let rows of player" class="grid-row">
-      <div *ngFor="let box of rows" (click)="updateBox(player, rows, box)">
-        {{box}}
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<div *ngFor="let player of players | async" class="panel panel-default grid-player">
-  {{player.$key}}
-  {{player.col}}
-  {{player.row}}
-  {{player.action}}
-
-  <button (click)="updateBox(player)">Test</button>
 </div>

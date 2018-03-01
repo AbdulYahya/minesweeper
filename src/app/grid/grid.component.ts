@@ -23,6 +23,8 @@ export class GridComponent implements OnInit {
   }
 
   updateBox(player) {
+    player.action += 1;
+    this.playerService.updateBox(player);
     // console.log(player);
     // console.log(player.$key);
     console.log(player.$key);

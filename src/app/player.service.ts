@@ -13,8 +13,12 @@ export class PlayerService {
   getPlayer() {
     return this.players;
   }
-  // updateBox() {
-  //
-  // }
+  getBoxById(boxId: string) {
+  return this.database.object('board/'+ boxId)
+}
+  updateBox(player) {
+    var boxEntryInFirebase = this.getBoxById(player.$key);
+    boxEntryInFirebase.update({action: player.action});
+  }
 
 }
