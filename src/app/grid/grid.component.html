@@ -8,7 +8,7 @@
     </div>
   </div>
 </div>
-<div *ngFor="let player of players | async" class="panel panel-default grid-player">
+<!-- <div *ngFor="let player of players | async" class="panel panel-default grid-player">
   <div class="panel-body grid">
     <div *ngFor="let rows of player" class="grid-row">
       <div *ngFor="let box of rows" (click)="updateBox(player, rows, box)">
@@ -16,25 +16,13 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <div *ngFor="let player of players | async" class="panel panel-default grid-player">
-  one above
-  <div *ngFor="let rows of player.board[0] | async">
-    test
-    {{rows}}
-    <div *ngFor="let row of rows | async">
-      <!-- {{row}} -->
-      <!-- <div *ngFor="let col of row">
-        {{col}}
-        hi
-      </div> -->
+  {{player.$key}}
+  {{player.col}}
+  {{player.row}}
+  {{player.action}}
 
-    </div>
-
-  </div>
-  <p>Test</p>
-  {{player.board[0].row}}
-
-<button (click)="updateBox(player, rows, box)">Test</button>
+  <button (click)="updateBox(player)">Test</button>
 </div>

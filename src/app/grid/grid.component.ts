@@ -22,10 +22,10 @@ export class GridComponent implements OnInit {
     console.log(this.grids);
   }
 
-  updateBox(player, row, box) {
-    console.log(player);
+  updateBox(player) {
+    // console.log(player);
+    // console.log(player.$key);
     console.log(player.$key);
-    // console.log(row);
     // console.log(box);
   }
 
