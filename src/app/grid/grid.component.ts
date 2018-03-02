@@ -17,29 +17,25 @@ export class GridComponent implements OnInit {
 
   constructor(private gridService: GridService, private playerService: PlayerService ) { }
 
-  ngOnInit() {
-
-    this.players = this.playerService.getPlayer();
-
-  }
+  ngOnInit() { this.players = this.playerService.getPlayer(); }
 
   updateBox(player) {
+    console.log(player);
     player.action += 1;
     this.playerService.updateBox(player);
     if(player.value == "X") {
       alert("you lost");
     }
-    console.log(player.$key);
-    // console.log(player);
-    // console.log(player.$key);
-    // console.log(player.$key);
-    // console.log(box);
   }
 
-  resetGrid(player){
-    console.log(player);
-    player.action = 0;
-    this.playerService.updateBox(player);
+  resetGrid() {
+    this.playerService.resetGrid();
   }
+
+  // resetGrid(player){
+  //   console.log(player);
+  //   player.action = 0;
+  //   this.playerService.updateBox(player);
+  // }
 
 }

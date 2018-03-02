@@ -12,8 +12,8 @@ export class PlayerService {
 
   getPlayer() {
     return this.players;
-
   }
+
   getBoxById(boxId: string) {
   return this.database.object('board/'+ boxId)
 }
@@ -22,11 +22,10 @@ export class PlayerService {
     boxEntryInFirebase.update({action: player.action});
   }
 
-  resetBox(players) {
-    var boxEntryInFirebase = this.getBoxById(players.$key);
-    boxEntryInFirebase.update({action:players.action});
+  resetGrid() {
+    this.players.$ref.orderByKey().on("child_added", (snapshot) => {
+      // console.log(snapshot.val());
+      this.players.update(snapshot, { action: 0});
+    });
   }
-
-  
-
 }

@@ -3,17 +3,19 @@
   <div class="panel-body grid">
     <div *ngFor="let player of players | async" (click)="updateBox(player)" class="grid-box">
       <span *ngIf="player.action >= 1">{{player.value}}</span>
-    
+
 
 
     </div>
   </div>
 <br><br>
-  <div class="panel-body grid">
+  <!-- <div class="panel-body grid">
     <div *ngFor="let player of players | async" class="grid-box">
       <button (click)="resetGrid(player)">Reset</button>
     </div>
-  </div>
+  </div> -->
+  <button (click)="resetGrid()">testReset</button>
+
 
 
 
